@@ -24,6 +24,9 @@ public class UserMapperTest {
         user.setAccountId("25252141");
        user.setGmeCreat(System.currentTimeMillis());
         user.setGmemodified(user.getGmeCreat());
-        userMapper.insert(user);*/
+        userMapper.insert(user);
+        String token ="0a231558-a08a-4f93-aa34-e1d95bc465a5";
+        User bytoken = userMapper.findBytoken(token);
+        System.out.println(bytoken);*/
     }
 }
