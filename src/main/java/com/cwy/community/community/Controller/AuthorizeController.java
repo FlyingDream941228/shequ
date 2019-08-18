@@ -46,7 +46,7 @@ public class AuthorizeController {
         accesstokenDTO.setState(state);
         String accesstoken = gitHubProvider.getAccesstoken(accesstokenDTO);
         GitHubUser gitHubUser = gitHubProvider.gteuser(accesstoken);
-        if (gitHubUser!=null){
+        if (gitHubUser!=null && gitHubUser.getId() != null){
             User user = new User();
             String token = UUID.randomUUID().toString();
             user.setToken(token);
@@ -54,6 +54,7 @@ public class AuthorizeController {
             user.setAccount_id(String.valueOf(gitHubUser.getId()));
             user.setGme_Create(System.currentTimeMillis());
             user.setGme_modified(user.getGme_Create());
+            user.setAvatr_url(gitHubUser.getAvatr_url());
             //写入session
             um.insert(user);
             res.addCookie(new Cookie("token" ,token));
