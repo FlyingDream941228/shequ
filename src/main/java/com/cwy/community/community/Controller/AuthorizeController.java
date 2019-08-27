@@ -59,7 +59,7 @@ public class AuthorizeController {
             um.insert(user);
             res.addCookie(new Cookie("token" ,token));
             //跳转到首页
-            return "redirect:/index";//redirect返回的是路径
+            return "redirect:/";//redirect返回的是路径
         }else {
             return "redirect:/";
         }

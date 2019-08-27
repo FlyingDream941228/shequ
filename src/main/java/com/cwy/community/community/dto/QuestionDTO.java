@@ -1,10 +1,10 @@
-package com.cwy.community.community.model;
+package com.cwy.community.community.dto;
 
+import com.cwy.community.community.model.User;
 import lombok.Data;
 
 @Data
-public class Quess {
-
+public class QuestionDTO {
     private Integer id;
     private String title;
     private String description;
@@ -15,6 +15,5 @@ public class Quess {
     private Integer view_count;
     private Integer like_count;
     private  String tag;
-
-
+    private User user;
 }
